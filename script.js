@@ -51,7 +51,12 @@ Compare inputs
 // Picks the computer choice by generating a number 1-3
 function getComputerChoice () {
     let compChoice = Math.floor((Math.random() * 3) + 1);
-    console.log(compChoice);
+    // console.log(compChoice);
 
     return compChoice;
+}
+
+function getUserChoice () {
+    let userChoice = prompt("What will you choose?");
+    return userChoice;
 }
