@@ -57,6 +57,20 @@ function getComputerChoice () {
 }
 
 function getUserChoice () {
-    let userChoice = prompt("What will you choose?");
+    let userChoice = prompt("Rock, paper, or scissors?");
     return userChoice;
+}
+
+
+
+function checkUser (userChoice = getUserChoice()) {
+    if (userChoice === 'rock') {
+        return 1;
+    } else if (userChoice === 'paper') {
+        return 2;
+    } else if (userChoice === 'scissors') {
+        return 3;
+    } else {
+        checkUser();
+    }
 }
