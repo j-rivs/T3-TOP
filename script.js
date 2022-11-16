@@ -46,6 +46,10 @@ Compare inputs
             Translate user and comp choice into comparable values?
             Set conditionals based on each users input choice?
                 Translation will have cleaner code
+
+Greate a "game" instance or reset criteria
+        Reset the function after a game is won or lost
+            Possibly take user input if they want to play again?
 */
 
 // Picks the computer choice by generating a number 1-3
@@ -64,13 +68,38 @@ function getUserChoice () {
 
 
 function checkUser (userChoice = getUserChoice()) {
-    if (userChoice === 'rock') {
+    if (userChoice.toLowerCase() === 'rock') {
         return 1;
-    } else if (userChoice === 'paper') {
+    } else if (userChoice.toLowerCase() === 'paper') {
         return 2;
-    } else if (userChoice === 'scissors') {
+    } else if (userChoice.toLowerCase() === 'scissors') {
         return 3;
     } else {
         checkUser();
     }
 }
+
+function compareChoices (userChoice = checkUser(), compChoice = getComputerChoice()) {
+    if (userChoice === compChoice) {
+        // draw instances
+        alert("Draw!");
+    } else {
+        // loss cases
+        switch () {
+            case (userChoice === 1 && compChoice === 2):
+            case (userChoice === 2 && compChoice === 3):
+            case (userChoice === 3 && compChoice === 1):
+                alert("You lost.");
+                break;
+            // win cases
+            case (userChoice === 1 && compChoice === 3):
+            case (userChoice === 2 && compChoice === 1):
+            case (userChoice === 3 && compChoice === 2):
+                alert("You won!");
+                break;
+        }
+    }
+    // add replay option
+}
+
+// add call of compareChoices so the game runs automatically
