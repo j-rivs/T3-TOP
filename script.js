@@ -85,7 +85,7 @@ function compareChoices (userChoice = checkUser(), compChoice = getComputerChoic
         alert("Draw!");
     } else {
         // loss cases
-        switch () {
+        switch (true) {
             case (userChoice === 1 && compChoice === 2):
             case (userChoice === 2 && compChoice === 3):
             case (userChoice === 3 && compChoice === 1):
