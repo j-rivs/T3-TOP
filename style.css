@@ -3,15 +3,24 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
   }
   
+  .title {
+    margin-bottom: 80px;
+  }
+
   button {
     padding: 20px;
     margin: 35px;
     border: none;
     border-radius: 50px;
-  background: #ffffff;
-  box-shadow:  -23px -23px 45px #bebebe,
-               23px 23px 45px #ffffff;
+    background: #ffffff;
+    box-shadow:  -23px -23px 45px #bebebe,
+                23px 23px 45px #ffffff;
   }
 
+.choice-container {
+    display: flex;
+    flex-direction: row;
+}

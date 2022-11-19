@@ -60,12 +60,14 @@ function getComputerChoice () {
     return compChoice;
 }
 
+
+/*
+Functions for the game to be played in console
+
 function getUserChoice () {
     let userChoice = prompt("Rock, paper, or scissors?");
     return userChoice;
 }
-
-
 
 function checkUser (userChoice = getUserChoice()) {
     if (userChoice.toLowerCase() === 'rock') {
@@ -79,7 +81,7 @@ function checkUser (userChoice = getUserChoice()) {
     }
 }
 
-function compareChoices (userChoice = checkUser(), compChoice = getComputerChoice()) {
+function compareChoices (userChoice, compChoice = getComputerChoice()) {
     if (userChoice === compChoice) {
         // draw instances
         alert("Draw!");
@@ -99,7 +101,27 @@ function compareChoices (userChoice = checkUser(), compChoice = getComputerChoic
                 break;
         }
     }
-    // add replay option
+}
+*/
+
+function compareChoices (userInput) {
+    let compInput = getComputerChoice();
+    if ((userInput === 1 && compInput === 2) || (userInput === 2 && compInput === 3) || (userInput === 3 && compInput === 1)) {
+        alert("You lost.");
+    } else if ((userInput === 1 && compInput === 3) || (userInput === 2 && compInput === 1) || (userInput === 3 && compInput === 1)) {
+        alert("You won!");
+    } else {
+        alert("Draw!");
+    }
 }
 
-// add call of compareChoices so the game runs automatically
+
+document.getElementById("rock").addEventListener("click", function(){
+    compareChoices(1);
+});
+document.getElementById("paper").addEventListener("click", function(){
+    compareChoices(2);
+});
+document.getElementById("scissors").addEventListener("click", function(){
+    compareChoices(3);
+});
