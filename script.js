@@ -104,14 +104,19 @@ function compareChoices (userChoice, compChoice = getComputerChoice()) {
 }
 */
 
+let result = document.getElementById("result");
+
 function compareChoices (userInput) {
     let compInput = getComputerChoice();
     if ((userInput === 1 && compInput === 2) || (userInput === 2 && compInput === 3) || (userInput === 3 && compInput === 1)) {
-        alert("You lost.");
+        //alert("You lost.");
+        result.textContent = "You lost.";
     } else if ((userInput === 1 && compInput === 3) || (userInput === 2 && compInput === 1) || (userInput === 3 && compInput === 1)) {
-        alert("You won!");
+        //alert("You won!");
+        result.textContent = "You won!";
     } else {
-        alert("Draw!");
+        //alert("Draw!");
+        result.textContent = "Draw!";
     }
 }
 
