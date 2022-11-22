@@ -62,6 +62,10 @@ function getComputerChoice () {
 
 
 /*
+global variables for game win/loss conditions
+let userWin = 0;
+let userLoss = 0;
+
 Functions for the game to be played in console
 
 function getUserChoice () {
@@ -92,31 +96,51 @@ function compareChoices (userChoice, compChoice = getComputerChoice()) {
             case (userChoice === 2 && compChoice === 3):
             case (userChoice === 3 && compChoice === 1):
                 alert("You lost.");
+                userLoss += 1;
                 break;
             // win cases
             case (userChoice === 1 && compChoice === 3):
             case (userChoice === 2 && compChoice === 1):
             case (userChoice === 3 && compChoice === 2):
                 alert("You won!");
+                userWin += 1;
                 break;
         }
     }
 }
+
+// creates a game instance and plays for 5 rounds
+function game () {
+    for (let i = 0; i < 5; i++) {
+        compareChoices();
+    }
+
+    if (userWin > userLoss) {
+        alert("You Won!");
+    } else if (userWin < userLoss) {
+        alert("You Lost.");
+    }
+    
+    userWin = 0;
+    userLoss = 0;
+}
 */
 
 let result = document.getElementById("result");
+let winCounter = 0;
 
 function compareChoices (userInput) {
     let compInput = getComputerChoice();
     if ((userInput === 1 && compInput === 2) || (userInput === 2 && compInput === 3) || (userInput === 3 && compInput === 1)) {
         //alert("You lost.");
-        result.textContent = "You lost.";
+        result.textContent = "You lost. Wins: " + winCounter;
     } else if ((userInput === 1 && compInput === 3) || (userInput === 2 && compInput === 1) || (userInput === 3 && compInput === 1)) {
         //alert("You won!");
-        result.textContent = "You won!";
+        winCounter += 1;
+        result.textContent = "You won!  Wins: " + winCounter;
     } else {
         //alert("Draw!");
-        result.textContent = "Draw!";
+        result.textContent = "Draw! Wins: " + winCounter;
     }
 }
 
